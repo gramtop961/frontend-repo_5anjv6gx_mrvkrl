@@ -1,26 +1,38 @@
-import { useState } from 'react'
+import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Hero from './components/Hero'
+import About from './components/About'
+import Services from './components/Services'
+import Contact from './components/Contact'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div className="scroll-smooth">
+      {/* Simple sticky navigation using Bootstrap utility spacing + Tailwind colors */}
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-900/80 backdrop-blur">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+          <a href="#home" className="text-lg font-bold text-white">
+            NeonGrid
+          </a>
+          <ul className="mb-0 flex list-none items-center gap-3 sm:gap-6">
+            <li><a href="#home" className="text-white/80 hover:text-white">Home</a></li>
+            <li><a href="#about" className="text-white/80 hover:text-white">About</a></li>
+            <li><a href="#services" className="text-white/80 hover:text-white">Services</a></li>
+            <li><a href="#contact" className="text-white/80 hover:text-white">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <Contact />
+      </main>
+
+      <footer className="border-t border-slate-200 bg-white py-8 text-center text-slate-600">
+        <p className="mb-0">© {new Date().getFullYear()} NeonGrid Studio. All rights reserved.</p>
+      </footer>
     </div>
   )
 }
